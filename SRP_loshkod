@@ -1,0 +1,18 @@
+class OrderService
+{
+    public void ProcessOrder(Order order)
+    {
+        if (order.Items.Count == 0)
+            throw new Exception("Empty order");
+
+        SaveToDatabase(order);
+
+        string invoice = CreateInvoice(order);
+
+        SendEmail(order.CustomerEmail, invoice);
+    }
+
+    void SaveToDatabase(Order order) { }
+    string CreateInvoice(Order order) { return "Invoice"; }
+    void SendEmail(string email, string content) { }
+}

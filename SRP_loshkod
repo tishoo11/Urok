@@ -2,13 +2,17 @@ class OrderService
 {
     public void ProcessOrder(Order order)
     {
+        // Проверка дали поръчката е валидна
         if (order.Items.Count == 0)
             throw new Exception("Empty order");
 
+        // Запис на поръчката в база данни
         SaveToDatabase(order);
 
+        // Генериране на фактура
         string invoice = CreateInvoice(order);
 
+        // Изпращане на имейл към клиента
         SendEmail(order.CustomerEmail, invoice);
     }
 

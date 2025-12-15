@@ -1,0 +1,21 @@
+// Проверява дали данните на потребителя са валидни
+void ValidateUser(User user)
+{
+    if (string.IsNullOrEmpty(user.Email))
+        throw new Exception("Invalid email");
+}
+
+// Създава нов потребител в системата
+void CreateUser(User user)
+{
+    string hashedPassword = HashPassword(user.Password);
+    SaveUser(user.Email, hashedPassword);
+}
+
+// Основен метод, който използва по-малките методи
+void RegisterUser(User user)
+{
+    ValidateUser(user);
+    CreateUser(user);
+    SendWelcomeEmail(user.Email);
+}

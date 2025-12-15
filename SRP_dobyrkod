@@ -1,0 +1,30 @@
+// Отговаря само за валидиране на поръчката
+class OrderValidator
+{
+    public void Validate(Order order)
+    {
+        if (order.Items.Count == 0)
+            throw new Exception("Empty order");
+    }
+}
+
+// Отговаря само за работа с базата данни
+class OrderRepository
+{
+    public void Save(Order order) { }
+}
+
+// Отговаря само за създаване на фактури
+class InvoiceService
+{
+    public string Generate(Order order)
+    {
+        return "Invoice";
+    }
+}
+
+// Отговаря само за изпращане на имейли
+class EmailService
+{
+    public void Send(string email, string content) { }
+}

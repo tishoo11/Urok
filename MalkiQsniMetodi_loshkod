@@ -1,0 +1,18 @@
+void RegisterUser(User user)
+{
+    // Проверка на входните данни
+    if (string.IsNullOrEmpty(user.Email))
+        throw new Exception("Invalid email");
+
+    // Хеширане на паролата
+    string hashedPassword = HashPassword(user.Password);
+
+    // Запис на потребителя в базата
+    SaveUser(user.Email, hashedPassword);
+
+    // Изпращане на приветствен имейл
+    SendWelcomeEmail(user.Email);
+
+    // Логване на операцията
+    Console.WriteLine("User registered");
+}

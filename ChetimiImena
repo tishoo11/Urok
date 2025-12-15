@@ -1,0 +1,17 @@
+LOSH PRIMER
+int x = 10;
+
+int Calc(int a, int b)
+{
+    return a * b / 100;
+}
+
+DOBYR PRIMER
+// Процент на отстъпката
+int discountPercentage = 10;
+
+// Изчислява стойността на отстъпката
+int CalculateDiscountAmount(int price, int percentage)
+{
+    return price * percentage / 100;
+}
